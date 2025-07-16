@@ -1,88 +1,166 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Page Form Keren</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Roboto', sans-serif;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .container {
-            background: rgba(0,0,0,0.5);
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-            max-width: 400px;
-            width: 100%;
-        }
-        h1 {
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 24px;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-        input, textarea {
-            padding: 12px;
-            margin: 10px 0;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            outline: none;
-        }
-        input:focus, textarea:focus {
-            box-shadow: 0 0 5px rgba(255,255,255,0.5);
-        }
-        button {
-            padding: 12px;
-            background: #00c6ff;
-            border: none;
-            border-radius: 8px;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-        button:hover {
-            background: #0072ff;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Survei Pelayanan UPT BKN JAMBI</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    overflow-y: auto;
+}
+.container {
+    background: rgba(0,0,0,0.6);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    max-width: 420px;
+    width: 90%;
+    margin: 40px 0;
+}
+.logo {
+    display: block;
+    width: 100px;
+    margin: 0 auto 20px auto;
+    border-radius: 12px;
+}
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 24px;
+}
+form {
+    display: flex;
+    flex-direction: column;
+}
+input, textarea, select {
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    transition: background 0.3s, box-shadow 0.3s;
+}
+input:focus, textarea:focus, select:focus {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 8px rgba(255,255,255,0.6);
+}
+select, select option {
+    color: black;
+    background: white;
+}
+.radio-group {
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+}
+.radio-group label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px;
+    cursor: pointer;
+}
+.radio-group input[type="radio"] {
+    accent-color: #00c6ff;
+    margin-right: 10px;
+    transform: scale(1.2);
+}
+button {
+    padding: 12px;
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.3s;
+}
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+</style>
 </head>
-<body> 
-    <div class="container">
-        <h1>Hubungi Kami</h1>
-        <form name="upetejambe">
-            <input type="text" name="nama" placeholder="Nama Anda" required>
-            <input type="email" name="email" placeholder="Email Anda" required>
-            <textarea name="pesan" rows="5" placeholder="Pesan Anda" required></textarea>
-            <button type="submit">Kirim Pesan</button>
-        </form>
-    </div>
-    <script>
-      const scriptURL = 'https://script.google.com/macros/s/AKfycbxxBjOzS1bUlfTymaB_PNILkyICoh1O7dUWa1obSayVhefhw1iBRP8ODOFnCeB6s3mWlA/exec';
-      const form = document.forms['upetejambe'];
+<body>
+<div class="container">
+    <img src="https://www.bkn.go.id/unggahan/2023/11/Landscape-logo.png" alt="Logo BKN" class="logo">
+    <h1>Hubungi Kami</h1>
+    <form name="upetejambe">
+        <input type="text" name="nama" placeholder="Nama Anda" required>
+        <input type="email" name="email" placeholder="Email Anda" required>
 
-      form.addEventListener('submit', e => {
+        <div class="radio-group">
+            <label>Jenis Kelamin:</label>
+            <label><input type="radio" name="jenisKelamin" value="Laki-laki" required> Laki-laki</label>
+            <label><input type="radio" name="jenisKelamin" value="Perempuan"> Perempuan</label>
+        </div>
+
+        <label for="pendidikan">Pendidikan:</label>
+        <select name="pendidikan" id="pendidikan" required>
+            <option value="">Pilih Pendidikan</option>
+            <option value="SD">SD</option>
+            <option value="SMP">SMP</option>
+            <option value="SMA/SMK">SMA/SMK</option>
+            <option value="D3">D3</option>
+            <option value="S1">S1</option>
+            <option value="S2">S2</option>
+            <option value="S3">S3</option>
+        </select>
+
+        <label for="pekerjaan">Pekerjaan:</label>
+        <select name="pekerjaan" id="pekerjaan" required>
+            <option value="">Pilih Pekerjaan</option>
+            <option value="PNS">PNS</option>
+            <option value="TNI">TNI</option>
+            <option value="POLRI">POLRI</option>
+            <option value="Swasta">Swasta</option>
+            <option value="Wirausaha">Wirausaha</option>
+            <option value="Lainya">Lainya</option>
+        </select>
+
+        <label for="jenisLayanan">Jenis Layanan:</label>
+        <select name="jenisLayanan" id="jenisLayanan" required>
+            <option value="">Pilih Jenis Layanan</option>
+            <option value="Mutasi Kepegawaian">Mutasi Kepegawaian</option>
+            <option value="Seleksi Sekolah Kedinasan">Seleksi Sekolah Kedinasan</option>
+            <option value="Seleksi Pengembangan Karier">Seleksi Pengembangan Karier</option>
+            <option value="Seleksi CASN">Seleksi CASN</option>
+            <option value="Seleksi non ASN">Seleksi non ASN</option>
+            <option value="Simulasi CAT BKN">Simulasi CAT BKN</option>
+            <option value="Pensiun">Pensiun</option>
+            <option value="Kenaikan Pangkat">Kenaikan Pangkat</option>
+        </select>
+
+        <textarea name="pesan" rows="5" placeholder="Pesan Anda" required></textarea>
+
+        <button type="submit">Kirim Pesan</button>
+    </form>
+</div>
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxxBjOzS1bUlfTymaB_PNILkyICoh1O7dUWa1obSayVhefhw1iBRP8ODOFnCeB6s3mWlA/exec';
+    const form = document.forms['upetejambe'];
+
+    form.addEventListener('submit', e => {
         e.preventDefault();
         fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-          .then(response => {
-            console.log('Success!', response);
-            window.location.href = 'thanks.html';
-          })
-          .catch(error => console.error('Error!', error.message));
-      });
-    </script> 
+            .then(response => {
+                console.log('Success!', response);
+                window.location.href = 'thanks.html';
+            })
+            .catch(error => console.error('Error!', error.message));
+    });
+</script>
 </body>
 </html>
