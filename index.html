@@ -63,7 +63,7 @@
 <body> 
     <div class="container">
         <h1>Hubungi Kami</h1>
-        <form name="upetejambe" action="#" method="post">
+        <form name="upetejambe">
             <input type="text" name="nama" placeholder="Nama Anda" required>
             <input type="email" name="email" placeholder="Email Anda" required>
             <textarea name="pesan" rows="5" placeholder="Pesan Anda" required></textarea>
@@ -71,15 +71,18 @@
         </form>
     </div>
     <script>
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbxxBjOzS1bUlfTymaB_PNILkyICoh1O7dUWa1obSayVhefhw1iBRP8ODOFnCeB6s3mWlA/exec'
-  const form = document.forms['upetejambe']
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbxxBjOzS1bUlfTymaB_PNILkyICoh1O7dUWa1obSayVhefhw1iBRP8ODOFnCeB6s3mWlA/exec';
+      const form = document.forms['upetejambe'];
 
-  form.addEventListener('submit', e => {
-    e.preventDefault()
-    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-      .then(response => console.log('Success!', response))
-      .catch(error => console.error('Error!', error.message))
-  })
-</script> 
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+          .then(response => {
+            console.log('Success!', response);
+            window.location.href = 'thanks.html';
+          })
+          .catch(error => console.error('Error!', error.message));
+      });
+    </script> 
 </body>
 </html>
