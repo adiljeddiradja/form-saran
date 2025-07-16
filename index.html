@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page Form Keren</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: rgba(0,0,0,0.5);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            max-width: 400px;
+            width: 100%;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        input, textarea {
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+        }
+        input:focus, textarea:focus {
+            box-shadow: 0 0 5px rgba(255,255,255,0.5);
+        }
+        button {
+            padding: 12px;
+            background: #00c6ff;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        button:hover {
+            background: #0072ff;
+        }
+    </style>
+</head>
+<body> 
+    <div class="container">
+        <h1>Hubungi Kami</h1>
+        <form name="upetejambe" action="#" method="post">
+            <input type="text" name="nama" placeholder="Nama Anda" required>
+            <input type="email" name="email" placeholder="Email Anda" required>
+            <textarea name="pesan" rows="5" placeholder="Pesan Anda" required></textarea>
+            <button type="submit">Kirim Pesan</button>
+        </form>
+    </div>
+    <script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbxxBjOzS1bUlfTymaB_PNILkyICoh1O7dUWa1obSayVhefhw1iBRP8ODOFnCeB6s3mWlA/exec'
+  const form = document.forms['upetejambe']
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => console.log('Success!', response))
+      .catch(error => console.error('Error!', error.message))
+  })
+</script> 
+</body>
+</html>
