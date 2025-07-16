@@ -146,24 +146,25 @@ button:hover {
 
         <textarea name="pesan" rows="5" placeholder="Pesan Anda" required></textarea>
 
+    
+<a href='thanks.html'>
     <button type="submit">Kirim Pesan</button>
-
-        
+</a>   
     </form>
 </div>
 <script>
     const scriptURL = 'https://script.google.com/macros/s/AKfycbxxBjOzS1bUlfTymaB_PNILkyICoh1O7dUWa1obSayVhefhw1iBRP8ODOFnCeB6s3mWlA/exec';
     const form = document.forms['upetejambe'];
 
-    form.addEventListener('submit', e => {
-        e.preventDefault();
-        fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-            .then(response => {
-                console.log('Success!', response);
-                window.location.href = 'thanks.html';
-            })
-            .catch(error => console.error('Error!', error.message));
-    });
+    // form.addEventListener('submit', e => {
+    //     e.preventDefault();
+    //     fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+    //         .then(response => {
+    //             console.log('Success!', response);
+    //             window.location.href = 'thanks.html';
+    //         })
+    //         .catch(error => console.error('Error!', error.message));
+    // });
 </script>
 </body>
 </html>
